@@ -20,7 +20,7 @@ export const ShellSectionKeywords: FC = () => {
     <ShellSection title="Keywords" contentType={ContentType.Tags}>
       <ul className="flex flex-wrap gap-2">
         {keywords.map((keyword) => (
-          <li key={keyword} className="bg-shark-600 rounded-md px-3 text-white">
+          <li key={keyword} className="bg-shark-700 rounded-md px-3 text-white">
             {keyword}
           </li>
         ))}
