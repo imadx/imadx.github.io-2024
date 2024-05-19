@@ -1,5 +1,6 @@
 export enum LocalStorageKey {
   FetchedData = "fetched-data",
+  FetchedDataTime = "fetched-data-time",
 }
 
 const LocalStoragePrefix = "ishan-portfolio-";
@@ -15,4 +16,10 @@ export function getLocalStorage<T>(key: LocalStorageKey): T | null {
 
   const value = localStorage.getItem(LocalStoragePrefix + key);
   return value ? JSON.parse(value) : null;
+}
+
+export function deleteLocalStorage(key: LocalStorageKey) {
+  if (typeof window === "undefined") return;
+
+  localStorage.removeItem(LocalStoragePrefix + key);
 }

@@ -1,8 +1,10 @@
 import {
   LocalStorageKey,
+  deleteLocalStorage,
   getLocalStorage,
   setLocalStorage,
 } from "@/utils/local-storage";
+import { isBefore, parseISO, subHours } from "date-fns";
 import Papa from "papaparse";
 import { useState, useEffect } from "react";
 
@@ -79,7 +81,7 @@ const GoogleSheetUrls = {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAq5jmf5abBe_Z8P6xBu5c0RFDF4T-RstO0G1R2MU9enxdtv_jSYh30Z7j2wQL6YG-tSSU-8m4c9jM/pub?gid=919901926&single=true&output=csv",
 };
 
-let cache: Record<DataType, GoogleSheetDataOutputType[DataType] | null> = {
+let cacheInitialState = {
   projects: null,
   workplaces: null,
   competitions: null,
@@ -87,20 +89,47 @@ let cache: Record<DataType, GoogleSheetDataOutputType[DataType] | null> = {
   highlights: null,
 };
 
-const cachedData = getLocalStorage<typeof cache>(LocalStorageKey.FetchedData);
-if (cachedData) {
-  cache = cachedData;
-}
+let cache: Record<DataType, GoogleSheetDataOutputType[DataType] | null> =
+  cacheInitialState;
 
 const updateCache = <T extends DataType>(
   dataType: T,
   data: GoogleSheetDataOutputType[T],
 ) => {
   setLocalStorage(LocalStorageKey.FetchedData, cache);
+  setLocalStorage(LocalStorageKey.FetchedDataTime, new Date().toISOString());
   cache[dataType] = data;
 };
 
-// Handle cache-invalidation
+const resetCache = () => {
+  cache = cacheInitialState;
+  deleteLocalStorage(LocalStorageKey.FetchedData);
+  deleteLocalStorage(LocalStorageKey.FetchedDataTime);
+};
+
+const isCacheToBeInvalidated = (): boolean => {
+  const fetchedDataTime = getLocalStorage<string>(
+    LocalStorageKey.FetchedDataTime,
+  );
+
+  if (!fetchedDataTime) {
+    resetCache();
+    return true;
+  }
+
+  const dateOneHourAgo = subHours(new Date(), 1);
+  if (isBefore(parseISO(fetchedDataTime), dateOneHourAgo)) {
+    resetCache();
+    return true;
+  }
+
+  return false;
+};
+
+const cachedData = getLocalStorage<typeof cache>(LocalStorageKey.FetchedData);
+if (cachedData && !isCacheToBeInvalidated()) {
+  cache = cachedData;
+}
 
 export const fetchData = <T extends DataType>(dataType: T) => {
   if (cache[dataType]) {
