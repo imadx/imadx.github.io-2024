@@ -1,31 +1,13 @@
 import { FC } from "react";
 import { ShellSection } from "./shell-section";
 import { AtSymbolIcon, PhoneIcon, LinkIcon } from "@heroicons/react/24/outline";
+import { ExternalLink } from "./shared-external-link";
 
 const contactDetails = {
   name: "Ishan Madhusanka",
   email: "ahtimadhusanka@gmail.com",
   phone: "+94 71 645 1456",
   githubHandle: "imadx",
-};
-
-interface ExternalLinkProps {
-  icon: JSX.Element;
-  href: string;
-  label: string;
-}
-
-const ExternalLink: FC<ExternalLinkProps> = ({ icon, href, label }) => {
-  return (
-    <a
-      href={href}
-      className="hover:text-lime-300 py-2 flex gap-2 items-center transition-colors w-max"
-      target="_blank"
-      rel="nofollow"
-    >
-      {icon} {label}
-    </a>
-  );
 };
 
 export const ShellSectionWhoAmI: FC = () => {
