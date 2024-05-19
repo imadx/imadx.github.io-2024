@@ -7,9 +7,11 @@ interface ExternalLinkProps {
 }
 
 export const ExternalLink: FC<ExternalLinkProps> = ({ icon, href, label }) => {
+  const sanitizedHref = href.startsWith("http") ? href : `https://${href}`;
+
   return (
     <a
-      href={href}
+      href={sanitizedHref}
       className="hover:text-lime-300 py-2 inline-flex gap-2 items-center transition-colors w-max"
       target="_blank"
       rel="nofollow"
