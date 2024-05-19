@@ -10,13 +10,13 @@ export const ShellSectionSkills: FC = () => {
 
   const items = skills.data.map((category) => {
     const skills = category.skills.split(",").map((skill) => (
-      <li key={skill} className="inline after:content-[',']">
+      <li key={skill} className="after:content-[',']">
         {skill}
       </li>
     ));
 
     return (
-      <ul key={category.category}>
+      <ul key={category.category} className="flex flex-wrap gap-3 gap-y-0 mb-4">
         <li className="font-bold opacity-50">{category.category}</li>
         {skills}
       </ul>
@@ -24,7 +24,7 @@ export const ShellSectionSkills: FC = () => {
   });
 
   return (
-    <ShellSection title="Skills" state={skills}>
+    <ShellSection title="Tech Stack" state={skills}>
       {items}
     </ShellSection>
   );
