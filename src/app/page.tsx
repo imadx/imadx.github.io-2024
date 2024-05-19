@@ -1,6 +1,7 @@
 "use client";
 
 import { ShellSectionCompetitions } from "./_components/shell-section-competitions";
+import { ShellSectionCopyright } from "./_components/shell-section-copyright";
 import { ShellSectionHighlights } from "./_components/shell-section-highlights";
 import { ShellSectionKeywords } from "./_components/shell-section-keywords";
 import { ShellSectionLastUpdatedAt } from "./_components/shell-section-last-updated";
@@ -22,6 +23,7 @@ export default function Home() {
       <ShellSectionCompetitions />
       <ShellSectionHighlights />
       <ShellSectionSkills />
+      <ShellSectionCopyright />
     </main>
   );
 }
