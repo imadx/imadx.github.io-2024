@@ -23,6 +23,7 @@ export default function RootLayout({
           "dark",
           "bg-shark-50 text-shark-950",
           "dark:bg-shark-950 dark:text-shark-100",
+          "selection:bg-lime-400 selection:text-black",
         )}
       >
         {children}
