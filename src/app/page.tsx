@@ -17,11 +17,11 @@ export default function Home() {
       <ShellSectionWhoAmI />
       <ShellSectionUserRoles />
       <ShellSectionKeywords />
-      <ShellSectionSkills />
       <ShellSectionProjects />
       <ShellSectionWorkplaces />
       <ShellSectionCompetitions />
       <ShellSectionHighlights />
+      <ShellSectionSkills />
     </main>
   );
 }
