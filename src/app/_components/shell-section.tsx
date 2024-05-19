@@ -33,6 +33,7 @@ export const ShellSection: FC<ShellSectionProps> = ({
           opacity-50
           before:content-[attr(data-before)] before:opacity-30
           truncate
+          mb-3
         "
           data-before="~$ "
           title={command}
@@ -47,7 +48,7 @@ export const ShellSection: FC<ShellSectionProps> = ({
           opacity-50
         before:content-[attr(data-before)] before:opacity-30
         after:content-[attr(data-after)] after:opacity-30
-        truncate
+        truncate mb-3 mt-4
         "
           data-before="~$ (cd '"
           data-after="' && find . -maxdepth 1 -type f -exec awk 'NR==1 {print FILENAME, $0}' {} \;)"

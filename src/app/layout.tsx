@@ -21,8 +21,8 @@ export default function RootLayout({
         className={clsx(
           inter.className,
           "dark",
-          "bg-gray-100 text-gray-900",
-          "dark:bg-gray-900 dark:text-gray-100",
+          "bg-shark-50 text-shark-950",
+          "dark:bg-shark-950 dark:text-shark-100",
         )}
       >
         {children}
