@@ -58,7 +58,7 @@ export const ShellSectionProjects: FC = () => {
 
   return (
     <ShellSection title="Projects" state={projects}>
-      <ul className="divide-y-2 divide-dashed divide-shark-900">{items}</ul>
+      <ul className="divide-y-2 divide-dashed divide-black/30">{items}</ul>
     </ShellSection>
   );
 };
