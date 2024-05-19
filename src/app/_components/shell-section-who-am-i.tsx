@@ -8,10 +8,10 @@ const contactDetails = {
   githubHandle: "imadx",
 };
 
-export const ShellSectionUserRoles: FC = () => {
+export const ShellSectionWhoAmI: FC = () => {
   return (
     <ShellSection command="whoami">
-      <h1>{contactDetails.name}</h1>
+      <h1 className="text-4xl my-3">{contactDetails.name}</h1>
       <address>
         Email:{" "}
         <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>

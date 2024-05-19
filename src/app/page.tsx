@@ -7,13 +7,14 @@ import { ShellSectionLastUpdatedAt } from "./_components/shell-section-last-upda
 import { ShellSectionProjects } from "./_components/shell-section-projects";
 import { ShellSectionSkills } from "./_components/shell-section-skills";
 import { ShellSectionUserRoles } from "./_components/shell-section-user-roles";
+import { ShellSectionWhoAmI } from "./_components/shell-section-who-am-i";
 import { ShellSectionWorkplaces } from "./_components/shell-section-workplaces";
 
 export default function Home() {
   return (
     <main className="container font-mono mx-auto width-md leading-7 px-4 py-[100px]">
       <ShellSectionLastUpdatedAt />
-      <ShellSectionUserRoles />
+      <ShellSectionWhoAmI />
       <ShellSectionUserRoles />
       <ShellSectionKeywords />
       <ShellSectionSkills />
