@@ -3,7 +3,7 @@ import {
   DataType,
   useGoogleSheetData,
 } from "@/hooks/use-google-sheet-data-output";
-import { ShellSection } from "./shell-section";
+import { ContentType, ShellSection } from "./shell-section";
 
 export const ShellSectionHighlights: FC = () => {
   const highlights = useGoogleSheetData(DataType.highlights);
@@ -13,7 +13,11 @@ export const ShellSectionHighlights: FC = () => {
   });
 
   return (
-    <ShellSection title="Highlights" state={highlights}>
+    <ShellSection
+      title="Highlights"
+      state={highlights}
+      contentType={ContentType.ListItems}
+    >
       <ul>{items}</ul>
     </ShellSection>
   );

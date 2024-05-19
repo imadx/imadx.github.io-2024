@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ShellSection } from "./shell-section";
+import { ContentType, ShellSection } from "./shell-section";
 
 const keywords = [
   "ishan madhusanka",
@@ -17,10 +17,12 @@ const keywords = [
 
 export const ShellSectionKeywords: FC = () => {
   return (
-    <ShellSection title="Keywords">
-      <ul>
+    <ShellSection title="Keywords" contentType={ContentType.Tags}>
+      <ul className="flex flex-wrap gap-2">
         {keywords.map((keyword) => (
-          <li key={keyword}>{keyword}</li>
+          <li key={keyword} className="bg-shark-600 rounded-md px-3 text-white">
+            {keyword}
+          </li>
         ))}
       </ul>
     </ShellSection>

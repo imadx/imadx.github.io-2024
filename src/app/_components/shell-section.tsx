@@ -1,10 +1,17 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useMemo } from "react";
+
+export enum ContentType {
+  Tags = "tags",
+  ListItems = "listItems",
+  ListItemsWithDetails = "listItemsWithDetails",
+}
 
 interface ShellSectionProps {
   title?: string;
   command?: string;
   children: ReactNode;
   state?: { isFetching: boolean; isError: boolean; isUninitialized: boolean };
+  contentType?: ContentType;
 }
 
 export const ShellSection: FC<ShellSectionProps> = ({
@@ -12,7 +19,22 @@ export const ShellSection: FC<ShellSectionProps> = ({
   command,
   children,
   state,
+  contentType,
 }) => {
+  const titleSuffix = useMemo(() => {
+    if (!title) return null;
+
+    switch (contentType) {
+      case ContentType.Tags:
+        return "' && ls)";
+      case ContentType.ListItems:
+        return "' && ls -1)";
+      case ContentType.ListItemsWithDetails:
+      default:
+        return "' && find . -maxdepth 1 -type f -exec awk 'NR==1 {print FILENAME, $0}' {} ;)";
+    }
+  }, [title, contentType]);
+
   if (state?.isFetching) {
     return <div className="mb-12">Loading...</div>;
   }
@@ -51,7 +73,7 @@ export const ShellSection: FC<ShellSectionProps> = ({
         truncate mb-3 mt-4
         "
           data-before="~$ (cd '"
-          data-after="' && find . -maxdepth 1 -type f -exec awk 'NR==1 {print FILENAME, $0}' {} \;)"
+          data-after={titleSuffix}
           title={title}
         >
           {title}

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ShellSection } from "./shell-section";
+import { ContentType, ShellSection } from "./shell-section";
 
 const userRoles = [
   "full-stack developer",
@@ -11,7 +11,7 @@ const userRoles = [
 
 export const ShellSectionUserRoles: FC = () => {
   return (
-    <ShellSection title="User Roles">
+    <ShellSection title="User Roles" contentType={ContentType.ListItems}>
       <ul>
         {userRoles.map((role) => (
           <li key={role}>{role}</li>
