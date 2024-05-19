@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC, ReactNode, useMemo } from "react";
 
 export enum ContentType {
@@ -66,12 +67,11 @@ export const ShellSection: FC<ShellSectionProps> = ({
 
       {title && (
         <h2
-          className="
-          opacity-50
-        before:content-[attr(data-before)] before:opacity-30
-        after:content-[attr(data-after)] after:opacity-30
-        truncate mb-3 mt-4
-        "
+          className={clsx(
+            "opacity-50 truncate mb-3 mt-4",
+            "before:content-[attr(data-before)] before:opacity-30",
+            "after:content-[attr(data-after)] after:opacity-30",
+          )}
           data-before="~$ (cd '"
           data-after={titleSuffix}
           title={title}
