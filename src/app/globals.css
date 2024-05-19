@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-dark-1: #212529;
+  --color-dark-2: #343a40;
+  --color-light-2: #ced4da;
+  --color-light-1: #f8f9fa;
+}
+
+body {
+  background-color: var(--color-light-1);
+  color: var(--color-dark-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-dark-1);
+    color: var(--color-light-1);
+  }
+}
