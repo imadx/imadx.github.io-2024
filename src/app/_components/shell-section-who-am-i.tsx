@@ -19,7 +19,7 @@ const ExternalLink: FC<ExternalLinkProps> = ({ icon, href, label }) => {
   return (
     <a
       href={href}
-      className="hover:text-lime-300 py-2 flex gap-2 items-center transition-colors"
+      className="hover:text-lime-300 py-2 flex gap-2 items-center transition-colors w-max"
       target="_blank"
       rel="nofollow"
     >
