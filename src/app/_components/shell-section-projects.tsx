@@ -6,7 +6,7 @@ import {
 import { ShellSection } from "./shell-section";
 import { getDisplayDate } from "@/utils/format";
 import { ExternalLink } from "./shared-external-link";
-import { LinkIcon } from "@heroicons/react/24/outline";
+import { LinkIcon, UserIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
 export const ShellSectionProjects: FC = () => {
@@ -48,9 +48,11 @@ export const ShellSectionProjects: FC = () => {
               </span>
             )}
           </span>
-          <span>Team{project.techStack}</span>
-
-          <span>Team{project.devTeamSize}</span>
+          <span>{project.techStack}</span>
+          <span>
+            <UserIcon className="h-4 inline" /> {project.devTeamSize} dev
+            {project.devTeamSize > 1 ? "s" : ""}
+          </span>
         </div>
       </li>
     );
