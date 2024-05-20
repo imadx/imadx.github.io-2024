@@ -26,11 +26,7 @@ export const ShellSectionHighlights: FC = () => {
   });
 
   return (
-    <ShellSection
-      title="Highlights"
-      state={highlights}
-      contentType={ContentType.ListItems}
-    >
+    <ShellSection title="Highlights" state={highlights}>
       <ul>{items}</ul>
     </ShellSection>
   );
