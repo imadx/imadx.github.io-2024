@@ -1,10 +1,10 @@
-import { FC } from "react";
 import {
   DataType,
   useGoogleSheetData,
 } from "@/hooks/use-google-sheet-data-output";
-import { ShellSection } from "./shell-section";
 import { getDisplayDate } from "@/utils/format";
+import { FC } from "react";
+import { ShellSection } from "./shell-section";
 
 export const ShellSectionCompetitions: FC = () => {
   const competitions = useGoogleSheetData(DataType.competitions);

@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { FC } from "react";
 import { ContentType, ShellSection } from "./shell-section";
-import clsx from "clsx";
 
 const keywords = [
   "ishan madhusanka",
