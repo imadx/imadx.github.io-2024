@@ -8,8 +8,6 @@ export const getDisplayDate = (date: string): string => {
   try {
     return format(parse(date, DATE_FORMAT_SHEET, new Date()), DATE_FORMAT_WEB);
   } catch (exception) {
-    console.error(exception);
-
     return date;
   }
 };
