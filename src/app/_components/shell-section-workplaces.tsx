@@ -10,7 +10,7 @@ export const ShellSectionWorkplaces: FC = () => {
   const workplaces = useGoogleSheetData(DataType.workplaces);
 
   const workplacesSorted = workplaces.data.sort((a, b) => {
-    return new Date(b.dateTo).getTime() - new Date(a.dateTo).getTime();
+    return new Date(b.dateFrom).getTime() - new Date(a.dateFrom).getTime();
   });
 
   const items = workplacesSorted.map((workplace) => {
