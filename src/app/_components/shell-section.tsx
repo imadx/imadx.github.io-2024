@@ -100,7 +100,7 @@ export const ShellSection: FC<ShellSectionProps> = ({
     return (
       <div className={divClassNames}>
         {titleContent}
-        Fetching...
+        {loadingIndicator || "Fetching..."}
       </div>
     );
   }
