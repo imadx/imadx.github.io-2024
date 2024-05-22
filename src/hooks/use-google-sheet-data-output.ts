@@ -10,11 +10,12 @@ import { useState, useEffect } from "react";
 
 // #region Types
 export enum DataType {
-  projects = "projects",
-  workplaces = "workplaces",
-  competitions = "competitions",
-  skills = "skills",
-  highlights = "highlights",
+  projects = 1,
+  workplaces,
+  competitions,
+  skills,
+  highlights,
+  metadata,
 }
 
 export interface Highlight {
@@ -59,12 +60,17 @@ export interface Workplaces {
   techStack: string;
 }
 
+export interface Metadata {
+  lastUpdated: string;
+}
+
 export interface GoogleSheetDataOutputType {
   [DataType.projects]: Project[];
   [DataType.workplaces]: Workplaces[];
   [DataType.competitions]: Competition[];
   [DataType.skills]: Skill[];
   [DataType.highlights]: Highlight[];
+  [DataType.metadata]: Metadata[];
 }
 // #endregion
 
@@ -79,6 +85,8 @@ const GoogleSheetUrls = {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAq5jmf5abBe_Z8P6xBu5c0RFDF4T-RstO0G1R2MU9enxdtv_jSYh30Z7j2wQL6YG-tSSU-8m4c9jM/pub?gid=11477177&single=true&output=csv",
   [DataType.highlights]:
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAq5jmf5abBe_Z8P6xBu5c0RFDF4T-RstO0G1R2MU9enxdtv_jSYh30Z7j2wQL6YG-tSSU-8m4c9jM/pub?gid=919901926&single=true&output=csv",
+  [DataType.metadata]:
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSAq5jmf5abBe_Z8P6xBu5c0RFDF4T-RstO0G1R2MU9enxdtv_jSYh30Z7j2wQL6YG-tSSU-8m4c9jM/pub?gid=477859758&single=true&output=csv",
 };
 
 let cacheInitialState = {

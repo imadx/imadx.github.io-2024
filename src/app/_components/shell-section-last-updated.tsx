@@ -1,8 +1,20 @@
+import {
+  DataType,
+  useGoogleSheetData,
+} from "@/hooks/use-google-sheet-data-output";
 import { FC } from "react";
 import { ShellMessage } from "./shell-message";
-
-const lastUpdatedOn = "2024-06-19"; // TODO: read this from a file/google-sheet updated during build time
+import { getDisplayDate } from "@/utils/format";
 
 export const ShellSectionLastUpdatedAt: FC = () => {
-  return <ShellMessage>last updated on {lastUpdatedOn}</ShellMessage>;
+  const lastUpdated = useGoogleSheetData(DataType.metadata);
+  if (lastUpdated.isFetching) return <ShellMessage>loading...</ShellMessage>;
+  if (lastUpdated.isError) return null;
+  if (!lastUpdated.data.length) return null;
+
+  return (
+    <ShellMessage>
+      last updated on {getDisplayDate(lastUpdated.data[0].lastUpdated)}
+    </ShellMessage>
+  );
 };
