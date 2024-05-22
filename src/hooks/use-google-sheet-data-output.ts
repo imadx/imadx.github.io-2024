@@ -90,11 +90,12 @@ const GoogleSheetUrls = {
 };
 
 let cacheInitialState = {
-  projects: null,
-  workplaces: null,
-  competitions: null,
-  skills: null,
-  highlights: null,
+  1: null, // projects
+  2: null, // workplaces
+  3: null, // competitions
+  4: null, // skills
+  5: null, // highlights
+  6: null, // metadata
 };
 
 let cache: Record<DataType, GoogleSheetDataOutputType[DataType] | null> =
