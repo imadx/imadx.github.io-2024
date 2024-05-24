@@ -6,7 +6,7 @@ export const HiResKeywords = () => {
     return (
       <li
         key={keyword}
-        className="bg-lime-500 text-black py-1 px-4 rounded-full bg-gradient-to-b from-lime-400 to-lime-500"
+        className="bg-lime-500 text-black text-sm py-1 px-4 rounded-full bg-gradient-to-b from-lime-400 to-lime-500"
       >
         {keyword}
       </li>
