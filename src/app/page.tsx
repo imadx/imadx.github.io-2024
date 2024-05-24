@@ -21,7 +21,7 @@ enum ContentMode {
 }
 
 export default function Home() {
-  const [contentMode, setContentMode] = useState(ContentMode.HiResMode);
+  const [contentMode, setContentMode] = useState(ContentMode.ShellMode);
 
   const handleOnChangeToggleMode = (isOn: boolean) => {
     setContentMode(isOn ? ContentMode.HiResMode : ContentMode.ShellMode);
