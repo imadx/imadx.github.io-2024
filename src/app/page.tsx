@@ -13,7 +13,8 @@ import { ShellSectionWhoAmI } from "./_components/shell-section-who-am-i";
 import { ShellSectionWorkplaces } from "./_components/shell-section-workplaces";
 import { HiResBrand } from "./_components/hi-res-brand";
 import { HiResKeywords } from "./_components/hi-res-keywords";
-import { ToggleMode } from "./_components/toggle-mode-content";
+import { ToggleModeContent } from "./_components/toggle-mode-content";
+import { HiResWorkplaces } from "./_components/hi-res-workplaces";
 
 enum ContentMode {
   ShellMode,
@@ -29,7 +30,7 @@ export default function Home() {
 
   const shellContent = (
     <main className="container font-mono mx-auto width-md leading-7 px-4 py-[100px]">
-      <ToggleMode onChange={handleOnChangeToggleMode} label="Mode" />
+      <ToggleModeContent onChange={handleOnChangeToggleMode} />
       <ShellSectionLastUpdatedAt />
       <ShellSectionWhoAmI />
       <ShellSectionUserRoles />
@@ -45,9 +46,10 @@ export default function Home() {
 
   const highResContent = (
     <main className="container font-sans mx-auto width-md leading-7 px-4 py-[100px]">
-      <ToggleMode onChange={handleOnChangeToggleMode} label="Mode" />
+      <ToggleModeContent onChange={handleOnChangeToggleMode} />
       <HiResBrand />
       <HiResKeywords />
+      <HiResWorkplaces />
     </main>
   );
 
