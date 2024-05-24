@@ -6,6 +6,8 @@ interface ShellMessageProps {
 
 export const ShellMessage: FC<ShellMessageProps> = ({ children }) => {
   return (
-    <span className="block text-gray-400 mb-12 opacity-50">{children}</span>
+    <span className="block text-gray-400 mb-12 opacity-50 w-max">
+      {children}
+    </span>
   );
 };
