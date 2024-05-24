@@ -5,5 +5,5 @@ interface HiResSectionTitle {
 }
 
 export const HiResSectionTitle: FC<HiResSectionTitle> = ({ children }) => {
-  return <h4 className="pt-8 pb-4 uppercase">{children}</h4>;
+  return <h4 className="pt-16 pb-4 uppercase">{children}</h4>;
 };
