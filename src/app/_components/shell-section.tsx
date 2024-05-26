@@ -1,5 +1,8 @@
+import { ContentMode, contentModeAtom } from "@/atoms/contentMode";
 import clsx from "clsx";
+import { useAtomValue } from "jotai";
 import { FC, ReactNode, useMemo } from "react";
+import { HiResSectionTitle } from "./hi-res-section-title";
 
 export enum ContentType {
   Tags = "tags",
@@ -38,12 +41,20 @@ export const ShellSection: FC<ShellSectionProps> = ({
     }
   }, [title, contentType]);
 
+  const contentMode = useAtomValue(contentModeAtom);
+
+  const isHighResMode = contentMode === ContentMode.HiResMode;
+
   const divClassNames = clsx(
     "mb-12 group p-4 py-6 -m-4 transition-background rounded-md",
-    "hover:ring-1 hover:ring-black/30",
+    !isHighResMode && "hover:ring-1 hover:ring-black/30",
   );
 
   const titleContent = useMemo(() => {
+    if (isHighResMode) {
+      return <HiResSectionTitle>{command || title}</HiResSectionTitle>;
+    }
+
     return (
       <>
         {command && (
@@ -76,7 +87,7 @@ export const ShellSection: FC<ShellSectionProps> = ({
         )}
       </>
     );
-  }, [command, title, titleSuffix]);
+  }, [command, title, titleSuffix, isHighResMode]);
 
   if (state?.isFetching) {
     return (
