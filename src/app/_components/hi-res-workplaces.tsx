@@ -22,32 +22,36 @@ const organizationLogoUrlMapping: Record<string, string> = {
 export const HiResWorkplaces = () => {
   const worplaces = useGoogleSheetData(DataType.workplaces);
 
-  const workplacesContent = worplaces.data.map((workplace) => {
-    return (
-      <li
-        key={workplace.title}
-        className="flex place-items-center flex-col gap-1 justify-between w-[160px] text-center"
-      >
-        <a href={getSanitizedUrl(workplace.organizationUrl)}>
-          <Image
-            className={clsx(
-              "size-[160px] flex place-items-center justify-center rounded-xl p-2 grayscale brightness-150 contrast-160",
-              "hover:bg-shark-600/5 hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:shadow-xl",
-            )}
-            src={
-              workplace.organizationLogoUrl ||
-              organizationLogoUrlMapping[workplace.organization.toLowerCase()]
-            }
-            alt={`Logo of ${workplace.organization}`}
-            width={160}
-            height={160}
-          />
-        </a>
-        <h5 className="text-xl">{workplace.organization}</h5>
-        <h6 className="text-shark-300">{workplace.title}</h6>
-      </li>
-    );
-  });
+  const workplacesContent = worplaces.data
+    .sort((a, b) => {
+      return new Date(b.dateFrom).getTime() - new Date(a.dateFrom).getTime();
+    })
+    .map((workplace) => {
+      return (
+        <li
+          key={workplace.title}
+          className="flex place-items-center flex-col gap-1 justify-between w-[160px] text-center"
+        >
+          <a href={getSanitizedUrl(workplace.organizationUrl)}>
+            <Image
+              className={clsx(
+                "size-[160px] flex place-items-center justify-center rounded-xl p-2 grayscale brightness-150 contrast-160",
+                "hover:bg-shark-600/5 hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:shadow-xl",
+              )}
+              src={
+                workplace.organizationLogoUrl ||
+                organizationLogoUrlMapping[workplace.organization.toLowerCase()]
+              }
+              alt={`Logo of ${workplace.organization}`}
+              width={160}
+              height={160}
+            />
+          </a>
+          <h5 className="text-xl">{workplace.organization}</h5>
+          <h6 className="text-shark-300">{workplace.title}</h6>
+        </li>
+      );
+    });
 
   return (
     <>
