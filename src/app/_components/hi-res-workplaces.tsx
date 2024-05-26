@@ -26,12 +26,12 @@ export const HiResWorkplaces = () => {
     return (
       <li
         key={workplace.title}
-        className="flex place-items-center flex-col gap-1 justify-between w-[160] text-center"
+        className="flex place-items-center flex-col gap-1 justify-between w-[160px] text-center"
       >
         <a href={getSanitizedUrl(workplace.organizationUrl)}>
           <Image
             className={clsx(
-              "size-[160] flex place-items-center justify-center rounded-xl p-2 grayscale brightness-150 contrast-160",
+              "size-[160px] flex place-items-center justify-center rounded-xl p-2 grayscale brightness-150 contrast-160",
               "hover:bg-shark-600/5 hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:shadow-xl",
             )}
             src={
