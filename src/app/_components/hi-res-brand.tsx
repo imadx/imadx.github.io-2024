@@ -6,7 +6,7 @@ import { getDisplayDate } from "@/utils/format";
 
 export const HiResBrand = () => {
   const metadata = useGoogleSheetData(DataType.metadata);
-  const lastUpdatedOn = metadata.data?.[0]?.lastUpdated;
+  const lastUpdatedOn = metadata.data?.[0]?.lastUpdated || ":)";
 
   return (
     <>
