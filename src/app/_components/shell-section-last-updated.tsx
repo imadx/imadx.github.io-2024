@@ -9,8 +9,8 @@ import { getDisplayDate } from "@/utils/format";
 export const ShellSectionLastUpdatedAt: FC = () => {
   const lastUpdated = useGoogleSheetData(DataType.metadata);
   if (lastUpdated.isFetching) return <ShellMessage>loading...</ShellMessage>;
-  if (lastUpdated.isError) return null;
-  if (!lastUpdated.data.length) return null;
+  if (lastUpdated.isError) return <ShellMessage>:).</ShellMessage>;
+  if (!lastUpdated.data.length) return <ShellMessage>loading...</ShellMessage>;
 
   return (
     <ShellMessage>
