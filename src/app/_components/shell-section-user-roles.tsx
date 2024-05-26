@@ -1,13 +1,6 @@
 import { FC } from "react";
 import { ContentType, ShellSection } from "./shell-section";
-
-const userRoles = [
-  "full-stack developer",
-  "ui/ux enthusiast",
-  "open-source contributor",
-  "designer",
-  "animator",
-];
+import { userRoles } from "@/constants/user-roles";
 
 export const ShellSectionUserRoles: FC = () => {
   return (
