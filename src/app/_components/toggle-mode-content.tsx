@@ -1,17 +1,17 @@
-import { FC, useState } from "react";
+import { ContentMode, contentModeAtom } from "@/atoms/contentMode";
+import { useAtom } from "jotai";
+import { FC } from "react";
 
-interface ToggleMode {
-  onChange: (value: boolean) => void;
-}
+interface ToggleMode {}
 
-export const ToggleModeContent: FC<ToggleMode> = ({ onChange }) => {
-  const [isOn, setIsOn] = useState(false);
+export const ToggleModeContent: FC<ToggleMode> = ({}) => {
+  const [contentMode, setContentMode] = useAtom(contentModeAtom);
 
   const handleOnClick = () => {
-    setIsOn((previous): boolean => {
-      onChange(!previous);
-
-      return !previous;
+    setContentMode((previous): ContentMode => {
+      return ContentMode.HiResMode === previous
+        ? ContentMode.ShellMode
+        : ContentMode.HiResMode;
     });
   };
 
@@ -22,7 +22,7 @@ export const ToggleModeContent: FC<ToggleMode> = ({ onChange }) => {
         className="bg-shark-900 px-4 py-1 rounded-full"
         onClick={handleOnClick}
       >
-        {isOn ? "Lo" : "Hi"}
+        {contentMode ? "Lo" : "Hi"}
       </button>{" "}
       res
     </div>

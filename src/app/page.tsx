@@ -15,22 +15,15 @@ import { HiResBrand } from "./_components/hi-res-brand";
 import { HiResKeywords } from "./_components/hi-res-keywords";
 import { ToggleModeContent } from "./_components/toggle-mode-content";
 import { HiResWorkplaces } from "./_components/hi-res-workplaces";
-
-enum ContentMode {
-  ShellMode,
-  HiResMode,
-}
+import { useAtomValue } from "jotai";
+import { ContentMode, contentModeAtom } from "@/atoms/contentMode";
 
 export default function Home() {
-  const [contentMode, setContentMode] = useState(ContentMode.ShellMode);
-
-  const handleOnChangeToggleMode = (isOn: boolean) => {
-    setContentMode(isOn ? ContentMode.HiResMode : ContentMode.ShellMode);
-  };
+  const contentMode = useAtomValue(contentModeAtom);
 
   const shellContent = (
     <main className="container font-mono mx-auto width-md leading-7 px-4 py-[100px]">
-      <ToggleModeContent onChange={handleOnChangeToggleMode} />
+      <ToggleModeContent />
       <ShellSectionLastUpdatedAt />
       <ShellSectionWhoAmI />
       <ShellSectionUserRoles />
@@ -46,10 +39,16 @@ export default function Home() {
 
   const highResContent = (
     <main className="container font-sans mx-auto width-md leading-7 px-4 py-[100px]">
-      <ToggleModeContent onChange={handleOnChangeToggleMode} />
+      <ToggleModeContent />
       <HiResBrand />
       <HiResKeywords />
       <HiResWorkplaces />
+      <ShellSectionProjects />
+      <ShellSectionWorkplaces />
+      <ShellSectionCompetitions />
+      <ShellSectionHighlights />
+      <ShellSectionSkills />
+      <ShellSectionCopyright />
     </main>
   );
 
