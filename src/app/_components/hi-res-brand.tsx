@@ -8,7 +8,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 
 const quoteIcon = (
-  <svg viewBox="0 0 123 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 123 199" fill="none" xmlns="http://www.w3.org/2000/svg" className='text-lime-500 dark:text-lime-400 '>
     <path
       d="M108.167 199H22.6667C15.1667 199 8.33333 189.5 4.6667 177C1.00008 164.5 -1.49999 115 4.6667 81C10.8334 47 35 0 52.1667 0H75.1667C61.5 13 47 41 43.5 60C40 79 45.5 102 45.5 102H108.167C121.667 102 122.667 113.5 122.667 120.5V180.5C122.667 195.5 116.167 199 108.167 199Z"
       fill="currentColor"
@@ -65,8 +65,9 @@ export const HiResBrand = () => {
             <h3
               key={role}
               className={clsx(
-                "font-black text-4xl text-lime-400 min-w-max transition-all absolute",
+                "font-black text-4xl min-w-max transition-all absolute",
                 "transform opacity-0 will-change-[transform,opacity]",
+                "text-lime-500 dark:text-lime-400",
                 index === previousRoleIndex ? "-translate-y-3 opacity-0" : "",
                 index === currentRoleIndex ? "translate-y-0 opacity-100" : "",
                 index === nextRoleIndex ? "translate-y-3 opacity-0" : "",
