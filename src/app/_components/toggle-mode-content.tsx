@@ -19,7 +19,7 @@ export const ToggleModeContent: FC<ToggleMode> = ({}) => {
     <div className="float-end font-mono">
       View in{" "}
       <button
-        className="bg-shark-900 px-4 py-1 rounded-full"
+        className="bg-shark-100 dark:bg-shark-900 px-4 py-1 rounded-full"
         onClick={handleOnClick}
       >
         {contentMode ? "Lo" : "Hi"}

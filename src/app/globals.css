@@ -10,8 +10,8 @@
 }
 
 body {
-  background-color: var(--color-light-1);
-  color: var(--color-dark-1);
+  /*background-color: var(--color-light-1);*/
+  /*color: var(--color-dark-1);*/
 }
 
 @media (prefers-color-scheme: dark) {

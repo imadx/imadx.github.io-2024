@@ -37,6 +37,8 @@ export const HiResWorkplaces = () => {
               className={clsx(
                 "size-[160px] flex place-items-center justify-center rounded-xl p-2 grayscale brightness-150 contrast-160",
                 "hover:bg-shark-600/5 hover:grayscale-0 hover:brightness-100 hover:contrast-100 hover:shadow-xl",
+                "bg-shark-400 hover:bg-shark-400",
+                "dark:bg-shark-950 hover:bg-shark-900"
               )}
               src={
                 workplace.organizationLogoUrl ||

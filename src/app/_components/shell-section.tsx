@@ -60,7 +60,9 @@ export const ShellSection: FC<ShellSectionProps> = ({
         {command && (
           <h2
             className={clsx(
-              "opacity-50 truncate mb-3",
+              "truncate mb-3",
+              "opacity-100",
+              "dark:opacity-50",
               "before:content-[attr(data-before)] before:opacity-30",
             )}
             data-before="~$ "
@@ -73,10 +75,12 @@ export const ShellSection: FC<ShellSectionProps> = ({
         {title && (
           <h2
             className={clsx(
-              "opacity-50 truncate mb-3 transition-opacity",
+              "opacity-90 truncate mb-3 transition-opacity",
+              "dark:opacity-50",
               "before:content-[attr(data-before)] before:opacity-30",
               "after:content-[attr(data-after)] after:opacity-30",
-              "group-hover:text-white group-hover:opacity-100",
+              "group-hover:text-black group-hover:opacity-100",
+              "dark:group-hover:text-white dark:group-hover:opacity-100",
             )}
             data-before="~$ (cd '"
             data-after={titleSuffix}

@@ -59,7 +59,7 @@ export const ShellSectionProjects: FC = () => {
       <li key={project.title} className="py-2">
         <div className={clsx("flex flex-wrap gap-4 gap-y-1 items-center")}>
           <span>{project.title}</span>{" "}
-          <span className="text-shark-500 flex-1">
+          <span className="text-shark-400 flex-1">
             {getDisplayDate(project.dateFrom)} -{" "}
             {getDisplayDate(project.dateTo)}
           </span>{" "}
@@ -67,7 +67,7 @@ export const ShellSectionProjects: FC = () => {
         </div>
         <div
           className={clsx(
-            "flex flex-wrap gap-4 gap-y-1 items-center text-sm text-shark-600",
+            "flex flex-wrap gap-4 gap-y-1 items-center text-sm text-shark-500",
           )}
         >
           <span className="flex-1">

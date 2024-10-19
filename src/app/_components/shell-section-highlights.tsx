@@ -17,10 +17,11 @@ export const ShellSectionHighlights: FC = () => {
     return (
       <li key={highlight.title} className="flex gap-8 relative">
         <span className="absolute w-full border-t border-dashed border-shark-600 top-[50%] z-0"></span>
-        <span className="bg-shark-950 z-10 px-3 -mx-3">
+        <span className="min-w-20"></span>
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-3 -mx-3 absolute">
           {getDisplayDate(highlight.date)}
         </span>
-        <span className="bg-shark-950 z-10 px-3 -mx-3">{highlight.title}</span>
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-3 -mx-3">{highlight.title}</span>
       </li>
     );
   });

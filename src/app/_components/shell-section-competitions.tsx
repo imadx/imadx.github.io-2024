@@ -19,7 +19,7 @@ export const ShellSectionCompetitions: FC = () => {
           <span
             key={skill}
             className={clsx(
-              "bg-shark-950 py-1 text-sm",
+              "bg-shark-50 dark:bg-shark-950 py-1 text-sm",
               index !== all.length - 1 && "after:content-[',_']",
             )}
           >
@@ -35,17 +35,18 @@ export const ShellSectionCompetitions: FC = () => {
         title={competition.description}
       >
         <span className="absolute w-full border-t border-dashed border-shark-600 top-[50%] z-0"></span>
-        <span className="bg-shark-950 z-10 px-3 -mx-3">
+        <span className="min-w-20"></span>
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-3 -mx-3 absolute">
           {getDisplayDate(competition.date)}
         </span>
-        <span className="bg-shark-950 z-10 px-3 -mx-3">
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-3 -mx-3">
           {competition.title}
         </span>
-        <span className="bg-shark-950 z-10 px-3 -mx-3 text-sm text-shark-400">
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-3 -mx-3 text-sm text-shark-400">
           {skills}
         </span>
         <span className="flex-1"></span>
-        <span className="bg-shark-950 z-10 px-4 -mx-4 text-shark-400">
+        <span className="bg-shark-50 dark:bg-shark-950 z-10 px-4 -mx-4 text-shark-400">
           {competition.placement}
         </span>
       </li>
